@@ -23,13 +23,11 @@ jobs:
     - uses: actions/checkout@v3
     - name: Set up unit-testing
       run: |
-        PATH="/opt/apache-maven-3.6.3/bin:$PATH"
-        mvn test
+        /opt/apache-maven-3.6.3/bin/mvn test
       
     - name: Set up package 
       run: |
-        PATH="/opt/apache-maven-3.6.3/bin:$PATH"
-        mvn clean install -DskipTests=true
+        /opt/apache-maven-3.6.3/bin/mvn clean install -DskipTests=true
     - name: build docker image
       run: docker build -t bharath0812/private:2.0 .
 
