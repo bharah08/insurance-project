@@ -21,9 +21,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Set up unit-testing
-      run: |
-        /opt/apache-maven-3.6.3/bin/mvn test
+    - name: Set up Maven
+      uses: stCarolas/setup-maven@v5
+      with:
+        maven-version: 3.8.2
+
+    - name: Build with Maven
+      run: mvn clean install
       
     - name: Set up package 
       run: |
